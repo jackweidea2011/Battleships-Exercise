@@ -25,7 +25,7 @@ require 'game'
 
 puts
 puts '############################################'
-puts '                             1/2 PLAYER     '
+puts '                            1/2 PLAYER     '
 puts '           |                BATTLESHIPS     '
 puts '        ___|_|                 FOR          '
 puts '      /   [] |     _//       TERMINAL       '
@@ -35,10 +35,20 @@ puts '                     /                      '
 puts '############################################'
 puts
 
-#grid_size = 10
-#against_computer = false
+choice = 'y'
+puts 'Would you like to play against the computer? [y/n]:'
+choice = gets.chomp.downcase
 
-game = Game.new(BATTLESHIPS::FACE_COMPUTER_OPPONENT, BATTLESHIPS::GRID_SIZE)
+against_computer = BATTLESHIPS::FACE_COMPUTER_OPPONENT
+case choice
+  when 'n'
+    against_computer = false
+end
+
+#grid_size = 10
+#
+
+game = Game.new(against_computer, BATTLESHIPS::GRID_SIZE)
 game.start
 
 puts
