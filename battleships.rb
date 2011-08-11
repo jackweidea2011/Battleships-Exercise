@@ -9,15 +9,16 @@ module BATTLESHIPS
   FACE_COMPUTER_OPPONENT = true
   GRID_SIZE = 10
   PHRASES = [
-    "BOOM! You got one!",
-    "Great shot! Boat down.",
-    "She won't be coming back!",
-    "WAHOO!",
-    "Nice! Look around close for clusters!",
-    "You're a pro at sinking ships.",
-    "That's a hit if I've ever seen one.",
-    "BOOM! - SPLOSH!",
-    "WAHAHAHAHAHA!"
+"You got one!",
+"*BOOM!!! SPLOSH...*",
+"*KABOOM!!! Tinkle Tinkle Plip Plop Drip*",
+"*CRUNCH BOOM!!!*",
+"Great shot Captain!",
+"Masterful choice Captain!",
+"I envy your skill Captain!",
+"Incredible shot, Captain!",
+"She won't be coming back Captain!",
+"Taking out boats this fast, the enemy doesn't stand a change Captain!"
     ]
 end
 
@@ -36,7 +37,8 @@ puts '############################################'
 puts
 
 choice = 'y'
-puts 'Would you like to play against the computer? [y/n]:'
+puts 'Would you like to play against the computer? [y/n]:
+'
 choice = gets.chomp.downcase
 
 against_computer = BATTLESHIPS::FACE_COMPUTER_OPPONENT
@@ -53,7 +55,12 @@ game.start
 
 puts
 puts '############################################'
-puts '                  GAME OVER                 '
+puts '              ---GAME OVER---   .     .     '
+puts '       .    .         ..    .   .   .  .    '
+puts '        ..   .       .    .       . ..  .   '
+puts '          ..            ______     .  ..  . '
+puts '       . _____.  .      \     \   .  ____  .'  
+puts '~~~~~~~~|   []|~~~~~~~~~~\     \~~~~/   /~~~'   
+puts '         \____| < / /      \/\-_\ /_/\_/    '
 puts '############################################'
 puts
-
