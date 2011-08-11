@@ -5,9 +5,9 @@ module BATTLESHIPS
   FIRE_MARKER = '$'
   CELL_MARKER = '#'
   SHIP_MARKER = '*'
-  NUM_BOATS = 2
+  NUM_BOATS = 5
   FACE_COMPUTER_OPPONENT = true
-  GRID_SIZE = 4
+  GRID_SIZE = 10
 end
 
 require 'game'
