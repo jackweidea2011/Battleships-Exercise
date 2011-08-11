@@ -12,7 +12,6 @@ class Player
   end
   
   def print_grid
-    puts self.boats.inspect
     self.grid.print_grid
   end
   
@@ -29,6 +28,7 @@ class Player
     marker = BATTLESHIPS::FIRE_MARKER
     if self.boats.include?(coords)
       self.boats.delete(coords)
+      puts BATTLESHIPS::PHRASES[rand(BATTLESHIPS::PHRASES.length)]
       marker = BATTLESHIPS::HIT_MARKER
     end
     self.grid.grid[y-1][x-1] = marker
@@ -57,19 +57,56 @@ class HumanPlayer < Player
   end
   
   def generate_coords
-    print 'Input x coordinate: '
-    x = gets.to_i
-    print 'Input y coordinate: '
-    y = gets.to_i
+    valid_x = false
+    x,y = 0,0
+    while !valid_x
+      print "Enter the x co-ordinate to attack: "
+      x = gets.to_i
+      if x <= grid_size && x >= 1 
+        valid_x = true 
+      else
+        puts "That's not inside the grid, re-enter the x co-ordinate to attack!: "
+      end
+    end
+    
+    valid_y = false
+    while !valid_y
+      print "Enter the y co-ordinate to attack: "
+      y = gets.to_i
+      if y <= grid_size && y >= 1 
+        valid_y = true
+      else
+        puts "That's not inside the grid, re-enter the y co-ordinate to attack!: "
+      end
+    end
+    
     return x,y
   end
   
   def place_boats
     num_boats.times do |i|
-      print "x coord for boat #{i+1}: " 
-      x = gets.to_i
-      print "y coord for boat #{i+1}: "
-      y = gets.to_i
+      valid_x = false
+      while !valid_x
+        print "x coord for boat #{i+1}: "
+        x = gets.to_i
+        if x <= grid_size && x >= 1 
+          valid_x = true 
+        else
+          puts "That's not inside the grid, re-enter an x co-ordinate for boat #{i+1}: "
+        end
+      end
+      
+      valid_y = false
+      while !valid_y
+        print "y coord for boat #{i+1}: "
+        y = gets.to_i
+        if y <= grid_size && y >= 1 
+          valid_y = true
+        else
+          puts "That's not inside the grid, re-enter a y co-ordinate for boat #{i+1}: "
+        end
+      end
+      
       @boats << [x,y]
     end
   end
